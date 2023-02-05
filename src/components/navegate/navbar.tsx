@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Outlet, Link } from "react-router-dom"
+import { Outlet, Link } from "react-router-dom";
 
 const NavbarSito = () => {
     return (
@@ -25,10 +25,10 @@ const NavbarSito = () => {
               </ul>
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item pe-2">
-                  <Link to="/SignUp"><button className="btn btn-white">Sign Up</button></Link>
+                  <Link to="sign"><button className="btn btn-white">Sign Up</button></Link>
                 </li>
                 <li className="nav-item ps-2">
-                  <Link to="/SignIn"><button className="btn btn-primary">Sign In</button></Link>
+                  <Link to="login"><button className="btn btn-primary">Sign In</button></Link>
                 </li>
               </ul>
             </div>
@@ -42,4 +42,4 @@ const NavbarSito = () => {
     )
 }
 
-export default NavbarSito
+export default NavbarSito;
