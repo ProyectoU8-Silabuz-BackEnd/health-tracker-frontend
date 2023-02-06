@@ -26,7 +26,7 @@ const Medicamentos = () => {
     }, []);
 
     return (
-        <select className="recordatoryinput" id="select-field" name="select-field">
+        <select className="recordatoryinput" id="select-field" name="select-field" required>
             {meds.map( item => (
                 <option key={item.id}>{item.nombre}</option>
             ))}
