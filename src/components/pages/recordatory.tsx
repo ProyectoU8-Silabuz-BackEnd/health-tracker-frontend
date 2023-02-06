@@ -1,6 +1,8 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
+import Medicamentos from "./medicamentos";
 
 const Recordatory = () => {
+
 	return (
         <Fragment>
         <h1 className="recordatorytitle"> Add Recordatory </h1>
@@ -15,12 +17,8 @@ const Recordatory = () => {
         <input type="float" className="recordatoryinput" id="float-field" name="float-field" placeholder="Intervals in hours"/>
         
         <label className="recordatorylabel">Select Field:</label>
-        <select className="recordatoryinput" id="select-field" name="select-field">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-        </select>
-        
+        <Medicamentos />
+
         <label className="recordatorylabel">Text Field:</label>
         <input type="text" className="recordatoryinput" id="text-field" name="text-field"/>
         
