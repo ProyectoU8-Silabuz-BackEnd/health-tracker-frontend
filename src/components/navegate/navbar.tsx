@@ -38,8 +38,7 @@ const NavbarSito = () => {
           </div>
         </Navbar>
         <section>
-            <Outlet>
-            </Outlet>
+            <Outlet></Outlet>
         </section>
         </>
     )
