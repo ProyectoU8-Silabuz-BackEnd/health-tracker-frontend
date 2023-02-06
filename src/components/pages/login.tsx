@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { loginUser } from "../../utils/auxiliar_login";
+import loginUser from "../../utils/auxiliar_login";
 
 export default function Login ({ setToken }) {
 
