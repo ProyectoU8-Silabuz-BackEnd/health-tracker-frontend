@@ -24,6 +24,9 @@ const NavbarSito = () => {
                 </li>
               </ul>
               <ul className="navbar-nav ms-auto">
+                <li className="nav-item ps-2">
+                  <Link to="recordatory"><button className="btn btn-primary">Add recordatory</button></Link>
+                </li>
                 <li className="nav-item pe-2">
                   <Link to="sign"><button className="btn btn-white">Sign Up</button></Link>
                 </li>
