@@ -4,14 +4,14 @@ import { loginUser } from "../../utils/auxiliar_login";
 
 export default function Login ({ setToken }) {
 
-    const [username, setUserName] = useState();
+    const [correo, setCorreo] = useState();
     const [password, setPassword] = useState();
 
     const handleSubmit = async e => {
         e.preventDefault();
         const token = await loginUser({
-          username,
-          password
+          "correo": correo,
+          "password": password
         });
         setToken(token);
     }
@@ -22,7 +22,7 @@ export default function Login ({ setToken }) {
 		<div className="wrapper">
 	        <h1 id="headline">Log in to connect</h1>
 		        <div className="input-data">
-		            <input className="form__input" type="text" id="email" autoComplete="off" placeholder=" " onChange={e => setUserName(e.target.value)} required/>
+		            <input className="form__input" type="text" id="correo" autoComplete="off" placeholder=" " onChange={e => setCorreo(e.target.value)} required/>
 		            <label className="form__label" >Email</label>
 		        </div>
 		        <div className="input-data">
