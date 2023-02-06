@@ -1,3 +1,41 @@
+.recordatorytitle {
+  text-align: center;
+  margin: 40px 0;
+}
+.recordatoryform {
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.recordatorylabel {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.recordatoryinput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.recordatorysubmit {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 /* Dark Form */
 
 * {
