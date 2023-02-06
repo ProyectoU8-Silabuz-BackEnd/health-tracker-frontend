@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { loginUser } from "../../utils/auxiliar_login";
 
 export default function Login ({ setToken }) {
+
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+        const token = await loginUser({
+          username,
+          password
+        });
+        setToken(token);
+    }
+
 	return (
 		<div className="logform">
-		<form>
+		<form onSubmit={handleSubmit}>
 		<div className="wrapper">
 	        <h1 id="headline">Log in to connect</h1>
 		        <div className="input-data">
