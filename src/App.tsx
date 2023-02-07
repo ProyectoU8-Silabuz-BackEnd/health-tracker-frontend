@@ -10,7 +10,6 @@ import './App.css';
 import React from 'react';
 
 const token = localStorage.getItem("token");
-const user = JSON.parse(localStorage.getItem("user"));
 
 export default function App(){
 
@@ -28,7 +27,7 @@ export default function App(){
             <Route index element={<Home/>} />
             <Route path="login" element={<Login/>} />
             <Route path="sign" element={<Sign/>} />
-            <Route path="recordatory" element={<Recordatory token={token} userId={user.id} />} />
+            <Route path="recordatory" element={<Recordatory />} />
             <Route path="DocSign" element={<DocSign/>} />
           </Route>
         </Routes>
