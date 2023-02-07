@@ -3,21 +3,14 @@ import Home from "./components/pages/home";
 import Login from "./components/pages/login";
 import Sign from "./components/pages/sign";
 import Recordatory from "./components/pages/recordatory";
-import { Route, Routes , Router } from "react-router-dom";
+import { Route, Routes , BrowserRouter } from "react-router-dom";
 import DocSign from "./components/pages/docSign";
-import { BrowserRouter } from "react-router-dom";
 import './App.css';
 import React from 'react';
 
 const token = localStorage.getItem("token");
 
 export default function App(){
-
-  console.log(token);
-
-  if(!token) {
-    return <Login />
-  }
 
   return(
     <div className="App"> 
