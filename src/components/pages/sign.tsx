@@ -129,7 +129,7 @@ const Sign = () => {
 			<div className="input-data">
 			  <input
 				className="form__input"
-				type="pasword"
+				type="password"
 				id="password"
 				autoComplete="off"
 				placeholder=" "
