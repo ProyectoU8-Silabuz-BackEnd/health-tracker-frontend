@@ -2,12 +2,24 @@ import NavbarSito from "./components/navegate/navbar";
 import Home from "./components/pages/home";
 import Login from "./components/pages/login";
 import Sign from "./components/pages/sign";
+import Recordatory from "./components/pages/recordatory";
+import { Route, Routes , Router } from "react-router-dom";
 import DocSign from "./components/pages/docSign";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import './App.css';
 import React from 'react';
 
+const token = localStorage.getItem("token");
+const user = JSON.parse(localStorage.getItem("user"));
+
 export default function App(){
+
+  console.log(token);
+
+  if(!token) {
+    return <Login />
+  }
+
   return(
     <div className="App"> 
       <BrowserRouter>
@@ -16,6 +28,7 @@ export default function App(){
             <Route index element={<Home/>} />
             <Route path="login" element={<Login/>} />
             <Route path="sign" element={<Sign/>} />
+            <Route path="recordatory" element={<Recordatory token={token} userId={user.id} />} />
             <Route path="DocSign" element={<DocSign/>} />
           </Route>
         </Routes>

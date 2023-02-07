@@ -43,6 +43,9 @@ const NavbarSito = () => {
                 <li className="nav-item pe-2">
                   <Link to="/profile"><button className="btn btn-primary">Perfil</button></Link>
                 </li>
+                <li className="nav-item ps-2">
+                  <Link to="recordatory"><button className="btn btn-primary">Add recordatory</button></Link>
+                </li>
                 <li className="nav-item pe-2">
                   <button className="btn btn-white" onClick={() => {
                     localStorage.removeItem("user");
