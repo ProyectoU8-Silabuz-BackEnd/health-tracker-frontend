@@ -1,34 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import NavbarSito from "./components/navegate/navbar";
+import Home from "./components/pages/home";
+import Login from "./components/pages/login";
+import Sign from "./components/pages/sign";
+import Recordatory from "./components/pages/recordatory";
+import { Route, Routes , Router } from "react-router-dom";
+import DocSign from "./components/pages/docSign";
+import { BrowserRouter } from "react-router-dom";
+import './App.css';
+import React from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+const token = localStorage.getItem("token");
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+export default function App(){
+
+  console.log(token);
+
+  if(!token) {
+    return <Login />
+  }
+
+  return(
+    <div className="App"> 
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<NavbarSito />}>
+            <Route index element={<Home/>} />
+            <Route path="login" element={<Login/>} />
+            <Route path="sign" element={<Sign/>} />
+            <Route path="recordatory" element={<Recordatory />} />
+            <Route path="DocSign" element={<DocSign/>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
