@@ -1,9 +1,11 @@
 import { Fragment, useEffect, useState } from "react";
 // import Medicamentos from "./medicamentos";
 
-const Recordatory = (token) => {
+
+export default function Recordatory (token, userId) {
     const [meds, setMeds] = useState([]);
     const [error, setError] = useState(null);
+    const [pacientes, setPacientes] = useState([]);
 
     const [selectedMed, setSelectedMed] = useState("clorfenamina");
     const [medId, setMedId] = useState(1);
@@ -11,7 +13,7 @@ const Recordatory = (token) => {
     const [endDate, setEndDate] = useState();
     const [interval, setInterval] = useState();
     const [message, setMessage] = useState();
-    
+
     const handleChange = event => {
         console.log(event.target.value);
         setSelectedMed(event.target.value);
@@ -28,7 +30,6 @@ const Recordatory = (token) => {
                 }
             };
             try {
-                const medsDic = {};
                 const response = await fetch('https://health-tracker-backend-production.up.railway.app/api/v1/pastilla', options);
                 const data = await response.json();
 
@@ -37,21 +38,45 @@ const Recordatory = (token) => {
 
             } catch (error) {
                 setError(error);
+                console.log(error);
+            }
+        }
+        async function fetchPacientes() {
+            const options = {
+                method: "get",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token.token
+                }
+            };
+            try {
+                const response = await fetch('https://health-tracker-backend-production.up.railway.app/api/v1/pacientes', options);
+                const data = await response.json();
+                console.log(pacientes);
+                setPacientes(data.data);
+
+            } catch (error) {
+                setError(error);
+                console.log(error);
             }
         }
         fetchMeds();
+        fetchPacientes();
     }, []);
 
     const handleSubmit = async e => {
+
         e.preventDefault();
-        console.log(typeof startDate, endDate, interval, medId, token.pacienteId);
+        console.log(typeof startDate, endDate, interval, medId, userId);
+        const paciente = pacientes.find(obj => obj.pacient_id === token.userId);
+
         const data = {
             Fecha_inicio: startDate + "T00:00:00Z",
             Fecha_fin: endDate + "T00:00:00Z",
             interval: interval,
             message: message,
             medicamento: medId,
-            pacientes: token.pacienteId
+            pacientes: paciente.id
         };
         const options = {
             method: "post",
@@ -62,7 +87,7 @@ const Recordatory = (token) => {
             body: JSON.stringify(data)
         };
         console.log(`medId -> ${medId}`);
-        console.log(token);
+        console.log(token.token);
         console.log(options.body);
         await fetch("https://health-tracker-backend-production.up.railway.app/api/v1/recordatory", options);
     }
@@ -95,5 +120,3 @@ const Recordatory = (token) => {
         </Fragment>
 	)
 }
-
-export default Recordatory;
