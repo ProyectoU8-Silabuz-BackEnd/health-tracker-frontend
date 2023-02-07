@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 interface SignupData {
-  nombre: string;
+  name: string;
+  last_name: string;
   dni: string;
-  edad: number;
   celular: string;
   users: {
     correo: string;
@@ -11,10 +11,10 @@ interface SignupData {
   };
 }
 
-const Sign = () => {
-  const [nombre, setNombre] = useState("");
+const DocSign = () => {
+  const [last_name,setLast_name] = useState("");
+  const [name, setName] = useState("");
   const [dni, setDni] = useState("");
-  const [edad, setEdad] = useState(0);
   const [celular, setCelular] = useState("");
   const [correo, setCorreo] = useState("");
   const [password, setPassword] = useState("");
@@ -23,15 +23,15 @@ const Sign = () => {
     e.preventDefault();
 
     const signupData: SignupData = {
-      nombre,
+      name,
       dni,
-      edad,
+      last_name,
       celular,
       users: { correo, password },
     };
 
     try {
-      const response = await fetch("https://health-tracker-backend-production.up.railway.app/api/v1/pacientes", {
+      const response = await fetch("https://health-tracker-backend-production.up.railway.app/api/v1/doctor", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,14 +60,28 @@ const Sign = () => {
 			  <input
 				className="form__input"
 				type="text"
-				id="nombre"
+				id="name"
 				autoComplete="off"
 				placeholder=" "
 				required
-				value={nombre}
-				onChange={(e) => setNombre(e.target.value)}
+				value={name}
+				onChange={(e) => setName(e.target.value)}
 			  />
 			  <label className="form__label">Nombre</label>
+			</div>
+
+            <div className="input-data">
+			  <input
+				className="form__input"
+				type="text"
+				id="last_name"
+				autoComplete="off"
+				placeholder=" "
+				required
+				value={last_name}
+				onChange={(e) => setLast_name(e.target.value)}
+			  />
+			  <label className="form__label">Apellido</label>
 			</div>
 
 			<div className="input-data">
@@ -82,20 +96,6 @@ const Sign = () => {
 				onChange={(e) => setDni(e.target.value)}
 			  />
 			  <label className="form__label">Dni</label>
-			</div>
-
-			<div className="input-data">
-			  <input
-				className="form__input"
-				type="string"
-				id="edad"
-				autoComplete="off"
-				placeholder=" "
-				required
-				value={edad}
-				onChange={(e) => setEdad(Number(e.target.value))}
-			  />
-			  <label className="form__label">Edad</label>
 			</div>
 
 			<div className="input-data">
@@ -129,7 +129,7 @@ const Sign = () => {
 			<div className="input-data">
 			  <input
 				className="form__input"
-				type="pasword"
+				type="password"
 				id="password"
 				autoComplete="off"
 				placeholder=" "
@@ -157,4 +157,4 @@ const Sign = () => {
   };
   
 
-export default Sign;
+export default DocSign;
