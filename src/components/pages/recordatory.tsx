@@ -94,8 +94,8 @@ export default function Recordatory () {
         const paciente = pacientes.find((obj: Pacient) => obj.pacient_id === userId);
         const pacienteId = paciente ? (paciente as Pacient).id: "";
         const data = {
-            Fecha_inicio: startDate + "T00:00:00Z",
-            Fecha_fin: endDate + "T00:00:00Z",
+            Fecha_inicio: startDate + ":00Z",
+            Fecha_fin: endDate + ":00Z",
             interval: interval,
             message: message,
             medicamento: medId,
@@ -120,10 +120,10 @@ export default function Recordatory () {
         <h1 className="recordatorytitle"> Add Recordatory </h1>
         <form className="recordatoryform" onSubmit={handleSubmit}>
             <label className="recordatorylabel">Start Date:</label>
-            <input type="date" className="recordatoryinput" id="start-date" name="start-date" required onChange={(e) => setStartDate(e.target.value)}/>
+            <input type="datetime-local" className="recordatoryinput" id="start-date" name="start-date" required onChange={(e) => setStartDate(e.target.value)}/>
             
             <label className="recordatorylabel">End Date:</label>
-            <input type="date" className="recordatoryinput" id="end-date" name="end-date" required onChange={(e) => setEndDate(e.target.value)}/>
+            <input type="datetime-local" className="recordatoryinput" id="end-date" name="end-date" required onChange={(e) => setEndDate(e.target.value)}/>
             
             <label className="recordatorylabel">Intervals:</label>
             <input type="float" className="recordatoryinput" id="float-field" name="float-field" placeholder="Intervals in hours" required onChange={(e) => setInterval(e.target.value)}/>
