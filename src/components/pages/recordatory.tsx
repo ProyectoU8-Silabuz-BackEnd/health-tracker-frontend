@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 // import Medicamentos from "./medicamentos";
 
-const Recordatory = (token: string) => {
+const Recordatory = (token) => {
     const [meds, setMeds] = useState([]);
     const [error, setError] = useState(null);
 
@@ -44,20 +44,20 @@ const Recordatory = (token: string) => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        console.log(typeof startDate, endDate, interval, medId);
+        console.log(typeof startDate, endDate, interval, medId, token.pacienteId);
         const data = {
             Fecha_inicio: startDate + "T00:00:00Z",
             Fecha_fin: endDate + "T00:00:00Z",
             interval: interval,
             message: message,
             medicamento: medId,
-            pacientes: 24
+            pacientes: token.pacienteId
         };
         const options = {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer " + token
+                "Authorization": "Bearer " + token.token
             },
             body: JSON.stringify(data)
         };

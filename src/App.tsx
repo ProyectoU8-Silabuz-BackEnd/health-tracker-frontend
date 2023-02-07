@@ -10,9 +10,15 @@ import './App.css';
 import React from 'react';
 
 const token = localStorage.getItem("token");
-const user = JSON.parse(localStorage.getItem("user"));
 
 export default function App(){
+
+  console.log(token);
+
+  if(!token) {
+    return <Login />
+  }
+
   return(
     <div className="App"> 
       <BrowserRouter>
