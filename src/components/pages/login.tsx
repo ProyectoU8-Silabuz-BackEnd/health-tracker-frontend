@@ -61,10 +61,6 @@ const Login = () => {
 			  <label className="form__label">Password</label>
 			</div>
 			<button className="logbut">Log in</button>
-			<div className="otheroption">
-			  <img src="img/google.png" width="70" alt="" id="google" />
-			  <img src="img/facebook.png" width="70" alt="" id="facebook" />
-			</div>
 			<p className="bottom__lines">
 			  Don't have an account <a className="link__one" href="">register here</a>
 			  <br />

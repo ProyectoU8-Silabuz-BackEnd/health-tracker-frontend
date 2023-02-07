@@ -1,3 +1,6 @@
+import { Outlet, Link } from "react-router-dom";
+
+
 const Home = () => {
     return (
      <div>
@@ -7,22 +10,16 @@ const Home = () => {
             <div className="col-lg-5">
               <div className="main-content">
                 <p className="mt-4 p-2 badge rounded-pill">
-                  <strong>Product</strong> <i className="fas fa-circle"></i> Medical
-                  devices, Medicines, Masks
+                  <strong>Recordatorio</strong> <i className="fas fa-circle"></i> Medicinas
                 </p>
-                <h1 className="my-3 main-text">Believe in Obatin for Medicine.</h1>
+                <h1 className="my-3 main-text">Confia tu Salud en HealthTracker.</h1>
                 <p className="main-desc mt-4">
-                  We are your <span>#1 ranked</span> pharmacy with free same day
-                  delivery and great care. Our pharmacy is a trusted pharmacy in
-                  this area.
+                  Somos <span>una novedosa aplicacion</span> para ayudarte a recordar tu medicacion de manera facil.
                 </p>
                 <div className="mt-5 btns-group">
-                  <button className="me-2 btn btn-secondary">
-                    Set Appointment
-                  </button>
-                  <button className="ms-2 btn btn-white">
-                    Get Started <i className="fas fa-arrow-right"></i>
-                  </button>
+                <Link to="recordatory"> <button className="me-2 btn btn-secondary">
+                    Crear Recordatorio <i className="fas fa-arrow-right"></i>
+                  </button> </Link>
                 </div>
               </div>
             </div>
