@@ -10,7 +10,7 @@ const NavbarSito = () => {
     <>
       <Navbar className="navbar navbar-expand-lg navbar-light bg-white">
         <div className="container">
-          <a href="#" className="navbar-brand"><i className="fas fa-capsules me-2"></i> Healty-Traker</a>
+          <a href="#" className="navbar-brand"><i className="fas fa-capsules me-2"></i> Health-Tracker</a>
           <button
             className="navbar-toggler"
             type="button"
