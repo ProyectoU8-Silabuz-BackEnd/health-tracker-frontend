@@ -50,7 +50,7 @@ const Login = () => {
 			<div className="input-data">
 			  <input
 				className="form__input"
-				type="text"
+				type="password"
 				id="password"
 				autoComplete="off"
 				placeholder=" "
